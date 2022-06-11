@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <title>Babylon.js sample code</title>
+        <title>Yeti just Bing Chilling</title>
 
         <!-- Babylon.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
@@ -40,9 +40,9 @@
 <body>
     <canvas id="renderCanvas"></canvas>
     <script>
-        let canvas = document.getElementById("renderCanvas");
+        var canvas = document.getElementById("renderCanvas");
 
-        let startRenderLoop = function (engine, canvas) {
+        var startRenderLoop = function (engine, canvas) {
             engine.runRenderLoop(function () {
                 if (sceneToRender && sceneToRender.activeCamera) {
                     sceneToRender.render();
@@ -50,16 +50,16 @@
             });
         }
 
-        let engine = null;
-        let scene = null;
-        let sceneToRender = null;
-        let createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true,  disableWebGL2Support: false}); };
-        let createScene = function () {
+        var engine = null;
+        var scene = null;
+        var sceneToRender = null;
+        var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true,  disableWebGL2Support: false}); };
+        var createScene = function () {
     // This creates a basic Babylon Scene object (non-mesh)
-    let scene = new BABYLON.Scene(engine);
+    var scene = new BABYLON.Scene(engine);
 
     // This creates and positions a free camera (non-mesh)
-    let camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+    var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
 
     // This targets the camera to scene origin
     camera.setTarget(BABYLON.Vector3.Zero());
@@ -68,14 +68,14 @@
     camera.attachControl(canvas, true);
 
     // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-    let light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+    var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
     // Default intensity is 1. Let's dim the light a small amount
     light.intensity = 0.7;
 
 
     // Our built-in 'ground' shape.
-    let ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
+    var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
     let groundMaterial = new BABYLON.StandardMaterial("Ground Material", scene);
     ground.material = groundMaterial;
     let groundTexture = new BABYLON.Texture(Assets.textures.checkerboard_basecolor_png.rootUrl, scene);
@@ -91,7 +91,7 @@
                 window.initFunction = async function() {
                     
                     
-                    let asyncEngineCreation = async function() {
+                    var asyncEngineCreation = async function() {
                         try {
                         return createDefaultEngine();
                         } catch(e) {
